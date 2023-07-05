@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestsKtTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2023-07-05T15:52:10" hostname="NB-0464" time="0.007">
+  <properties/>
+  <testcase name="calculateCommissionMastercardMaestroBadAmount" classname="TestsKtTest" time="0.005"/>
+  <testcase name="calculateCommissionMastercardMaestroBadTransfers" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionCardTypeVkpay" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionCardTypeBad" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionCardTypeMir" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionMastercardMaestroGood" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionVkPayBadAmount" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionVisaMirBadAmount" classname="TestsKtTest" time="0.0"/>
+  <testcase name="testCalculateCommission_MaestroWithinLimits_ReturnsCommissionAmount" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionMastercardMaestroGoodTwo" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionVkPayBadTransfers" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionVkPayGood" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionVisaMinimum" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionVisaMirGood" classname="TestsKtTest" time="0.0"/>
+  <testcase name="calculateCommissionVisaMirBadTransfers" classname="TestsKtTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

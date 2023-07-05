@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="ru"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Tests.kt</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Tests</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Tests.kt</span></div><h1>Tests.kt</h1><pre class="source lang-java linenums">const val ERROR_LIMIT = -1.0
+const val ERROR_TYPE = -2.0
+
+fun main() {
+<span class="nc" id="L5">    println(calculateCommission(&quot;VK Pay&quot;, 0, 1_000))</span>
+<span class="nc" id="L6">}</span>
+
+fun calculateCommission(cardType: String, previousTransfers: Int, transferAmount: Int): Double {
+<span class="fc" id="L9">    val mastercardMaestroLimit = 75_000</span>
+<span class="fc" id="L10">    val visaMirMinimum = 35</span>
+<span class="fc" id="L11">    val mastercardMaestroCommissionRate = 0.006</span>
+<span class="fc" id="L12">    val mastercardMaestroCommissionFixed = 20</span>
+<span class="fc" id="L13">    val visaMirCommissionRate = 0.0075</span>
+<span class="fc" id="L14">    val cardDayLimit = 150_000</span>
+<span class="fc" id="L15">    val cardMonthLimit = 600_000</span>
+
+
+<span class="fc" id="L18">    var commission = 0.0</span>
+
+<span class="pc bpc" id="L20" title="5 of 16 branches missed.">    when (cardType) {</span>
+        &quot;Mastercard&quot;, &quot;Maestro&quot; -&gt; {
+<span class="fc bfc" id="L22" title="All 4 branches covered.">            commission = if (transferAmount + previousTransfers &lt;= cardMonthLimit &amp;&amp; transferAmount &lt;= cardDayLimit)</span>
+<span class="fc" id="L23">                transferAmount * mastercardMaestroCommissionRate + mastercardMaestroCommissionFixed else ERROR_LIMIT</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            if (previousTransfers + transferAmount &lt;= mastercardMaestroLimit)</span>
+<span class="fc" id="L25">                commission = 0.0</span>
+        }
+
+        &quot;Visa&quot;, &quot;РњР�Р &quot; -&gt; {
+<span class="fc bfc" id="L29" title="All 4 branches covered.">            commission = if (transferAmount + previousTransfers &lt;= cardMonthLimit &amp;&amp; transferAmount &lt;= cardDayLimit)</span>
+<span class="fc" id="L30">                transferAmount * visaMirCommissionRate else ERROR_LIMIT</span>
+<span class="pc bpc" id="L31" title="1 of 6 branches missed.">            if (commission &lt; visaMirMinimum &amp;&amp; commission != ERROR_LIMIT)</span>
+<span class="fc" id="L32">                commission = visaMirMinimum.toDouble()</span>
+        }
+
+        &quot;VK Pay&quot; -&gt; {
+<span class="fc bfc" id="L36" title="All 4 branches covered.">            commission = if (transferAmount &lt;= 15_000 &amp;&amp; (transferAmount + previousTransfers) &lt;= 40_000)</span>
+<span class="fc" id="L37">                0.0</span>
+<span class="fc" id="L38">            else ERROR_LIMIT</span>
+        }
+<span class="fc" id="L40">        else -&gt; commission = ERROR_TYPE</span>
+    }
+<span class="fc" id="L42">    return commission</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
