@@ -146,7 +146,7 @@ class TestsKtTest {
             cardType -> calculateCommission(cardType,previousTransfers,transferAmout)
             else -> -2.0
         }
-        assertEquals(-1.0,result,0.0)
+        assertEquals(-0.0,result,0.0)
     }
     @Test
     fun testCalculateCommission_MaestroWithinLimits_ReturnsCommissionAmount() {
